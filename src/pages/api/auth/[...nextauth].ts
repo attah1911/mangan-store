@@ -40,13 +40,16 @@ const authOptions: NextAuthOptions = {
   callbacks: {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
     async jwt({ token, account, profile, user }: any) {
-      if (account?.provider === "credentials") {
+      // MEMPERSIMPLE
+      return (account?.provider == "credentials") ? user : token;
+
+      /* if (account?.provider === "credentials") {
         token.email = user.email;
         token.username = user.username;
         token.phone = user.phone;
         token.role = user.role;
       }
-      return token;
+      return token; */
     },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async session({ session, token }: any) {

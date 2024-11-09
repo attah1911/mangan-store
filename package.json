@@ -10,11 +10,16 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@material-tailwind/react": "^2.1.10",
+    "bcrypt": "^5.1.1",
+    "firebase": "^11.0.1",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "sass": "^1.80.6"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

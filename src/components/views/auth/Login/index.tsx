@@ -102,6 +102,16 @@ const LoginView = () => {
             {isLoading ? "Loading..." : "Masuk"}
           </button>
         </form>
+        <hr className={styles.login__form__devider} />
+        <div className={styles.login__form__other}>
+          <button
+            type="button"
+            onClick={() => signIn("google", { callbackUrl, redirect: false })}
+            className={styles.login__form__other__button}
+          >
+            <i className="bx bxl-google"></i>
+          </button>
+        </div>
         <p className={styles.login__link}>
           Belum punya akun? <Link href="/auth/register">yuk daftar</Link>
         </p>

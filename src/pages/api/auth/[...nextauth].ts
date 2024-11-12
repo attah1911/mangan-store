@@ -1,6 +1,7 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { signIn } from "@/lib/firebase/service";
+import GoogleProvider from "next-auth/providers/google";
+import { loginWithGoogle, signIn } from "@/lib/firebase/service";
 import { compare } from "bcrypt";
 
 const authOptions: NextAuthOptions = {
@@ -35,14 +36,41 @@ const authOptions: NextAuthOptions = {
         }
       },
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_OAUTH_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_OAUTH_CLIENT_SECRET || "",
+    }),
   ],
 
   callbacks: {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
     async jwt({ token, account, profile, user }: any) {
       // MEMPERSIMPLE
-      return (account?.provider == "credentials") ? user : token;
+      // return account?.provider == "credentials" ? user : token;
+      if (account?.provider === "credentials") {
+        token.email = user.email;
+        token.username = user.username;
+        token.phone = user.phone;
+        token.role = user.role;
+      }
+
+      if (account?.provider === "google") {
+        const data = {
+          fullname: user.name,
+          email: user.email,
+          type: "google",
+        };
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        await loginWithGoogle(data, (data: any) => {
+          token.email = data.email;
+          token.username = data.username;
+          token.role = data.role;
+        });
+      }
+      return token;
     },
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async session({ session, token }: any) {
       if ("email" in token) {

@@ -1,0 +1,21 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  margin: 0 auto;
+  border-radius: 45px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  width: 50%;
+  height: 50px;
+  padding: 10px;
+  border: none;
+  font-weight: bold;
+}
+
+.primary {
+  background-color: #e6d8a8;
+  color: #000;
+}

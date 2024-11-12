@@ -3,6 +3,8 @@ import styles from "./Register.module.scss";
 import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
 import Image from "next/image";
+import Input from "@/components/ui/Input";
+import Button from "@/components/ui/Button";
 
 const RegisterView = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -77,45 +79,29 @@ const RegisterView = () => {
         </p>
         {error && <p className={styles.register__error}>{error}</p>}
         <form onSubmit={handleSubmit}>
-          <div className={styles.register__form__item}>
-            <input
-              name="username"
-              id="username"
-              type="text"
-              placeholder="Nama"
-              className={styles.register__form__item__input}
-            />
-          </div>
-          <div className={styles.register__form__item}>
-            <input
-              name="email"
-              id="email"
-              type="email"
-              placeholder="Email"
-              className={styles.register__form__item__input}
-            />
-          </div>
-          <div className={styles.register__form__item}>
-            <input
-              name="phone"
-              id="phone"
-              type="text"
-              placeholder="No. Telp"
-              className={styles.register__form__item__input}
-            />
-          </div>
-          <div className={styles.register__form__item}>
-            <input
-              name="password"
-              id="password"
-              type="password"
-              placeholder="Kata Sandi"
-              className={styles.register__form__item__input}
-            />
-          </div>
-          <button type="submit" className={styles.register__form__button}>
+          <Input
+            label="Username"
+            name="username"
+            type="text"
+            placeholder="Username"
+          />
+          <Input label="Email" name="email" type="email" placeholder="Email" />
+          <Input
+            label="Phone"
+            name="phone"
+            type="number"
+            placeholder="No. Telepon"
+          />
+          <Input
+            label="Password"
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
+          <Button type="submit" className={styles.register__form__button}>
+            {" "}
             {isLoading ? "Loading..." : "Daftar"}
-          </button>
+          </Button>
         </form>
         <p className={styles.register__link}>
           Sudah punya akun? <Link href="/auth/login">Login Sini</Link>

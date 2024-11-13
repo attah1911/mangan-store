@@ -1,43 +1,7 @@
 .register {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  background-color: #e6d8a8;
-  &__error {
-    color: #fd3131;
-    margin-bottom: 10px;
-  }
-  &__title {
-    display: flex;
-    justify-content: center;
-    font-size: 32px;
-    margin-bottom: 5px;
-    margin-top: 20px;
-  }
-  &__subtitle {
-    text-align: center;
-    margin-bottom: 25px;
-  }
-  &__form {
-    background-color: #f2eeee;
-    width: 30%;
-    padding: 20px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
-    border-radius: 45px;
-    &__button {
-      background-color: #e6d8a8;
-      color: #000;
-      width: 50%;
-    }
-  }
-  &__link {
-    text-align: center;
-    a {
-      color: #23bebe;
-    }
+  &__button {
+    background-color: #e6d8a8;
+    color: #000;
+    width: 50%;
   }
 }

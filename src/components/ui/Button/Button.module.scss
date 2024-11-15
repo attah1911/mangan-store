@@ -12,10 +12,15 @@
   height: 50px;
   padding: 10px;
   border: none;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .primary {
   background-color: #e6d8a8;
+  color: #000;
+}
+
+.secondary {
+  background-color: #fff;
   color: #000;
 }

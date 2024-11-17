@@ -22,6 +22,7 @@ export default async function handler(
     const { user }: any = req.query;
     const { data } = req.body;
     const token = req.headers.authorization?.split(" ")[1] || "";
+    console.log("halo");
     jwt.verify(
       token,
       process.env.NEXTAUTH_SECRET || "",

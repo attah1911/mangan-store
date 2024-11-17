@@ -56,7 +56,7 @@ const authOptions: NextAuthOptions = {
 
       if (account?.provider === "google") {
         const data = {
-          fullname: user.name,
+          username: user.name,
           email: user.email,
           type: "google",
         };

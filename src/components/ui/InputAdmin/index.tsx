@@ -1,4 +1,4 @@
-import styles from "./Input.module.scss";
+import styles from "./InputAdmin.module.scss";
 
 type Proptypes = {
   label?: string;
@@ -9,10 +9,13 @@ type Proptypes = {
   disabled?: boolean;
 };
 
-const Input = (props: Proptypes) => {
-  const { name, type, placeholder, defaultValue, disabled } = props;
+const InputAdmin = (props: Proptypes) => {
+  const { label, name, type, placeholder, defaultValue, disabled } = props;
   return (
     <div className={styles.container}>
+      <label htmlFor={name} className={styles.container__label}>
+        {label}
+      </label>
       <input
         name={name}
         id={name}
@@ -26,4 +29,4 @@ const Input = (props: Proptypes) => {
   );
 };
 
-export default Input;
+export default InputAdmin;

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Button from "@/components/ui/Button";
 import InputAdmin from "@/components/ui/InputAdmin";
 import Modal from "@/components/ui/Modal";
@@ -6,16 +8,13 @@ import userServices from "@/services/user";
 import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ModalUpdateUser = (props: any) => {
   const { updatedUser, setUpdatedUser, setUsersData } = props;
   const session: any = useSession();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoading, setIsLoading] = useState(false);
   const handleUpdateUser = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const form: any = event.target as HTMLFormElement;
     const data = {
       role: form.role.value,

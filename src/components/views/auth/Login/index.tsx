@@ -47,6 +47,7 @@ const LoginView = () => {
   return (
     <AuthLayout
       title="Yuk Login!"
+      error={error}
       link="/auth/register"
       linkText="Belum punya akun? Daftar "
       subtitle="Halo! Login dulu yuk ke akun kamu"

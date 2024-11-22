@@ -44,9 +44,11 @@ export async function signIn(email: string) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-function-type
 export async function loginWithGoogle(
   data: {
+    id?: string;
     email: string;
     role?: string;
     password?: string;
+    image: string;
     created_at?: Date;
     updated_at?: Date;
   },
@@ -62,8 +64,10 @@ export async function loginWithGoogle(
     data.created_at = new Date();
     data.updated_at = new Date();
     data.password = "";
-    await addData("users", data, (result: boolean) => {
-      if (result) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    await addData("users", data, (status: boolean, res: any) => {
+      data.id = res.path.replace("users/", "");
+      if (status) {
         callback(data);
       }
     });

@@ -22,7 +22,6 @@ export default async function handler(
     const { user }: any = req.query;
     const { data } = req.body;
     const token = req.headers.authorization?.split(" ")[1] || "";
-    console.log("halo");
     jwt.verify(
       token,
       process.env.NEXTAUTH_SECRET || "",
@@ -57,7 +56,6 @@ export default async function handler(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
     const { user }: any = req.query;
     const token = req.headers.authorization?.split(" ")[1] || "";
-    console.log(token);
     jwt.verify(
       token,
       process.env.NEXTAUTH_SECRET || "",

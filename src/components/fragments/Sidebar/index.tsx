@@ -10,15 +10,16 @@ type Proptypes = {
     url: string;
     icon: string;
   }>;
+  label?: string;
 };
 
 const Sidebar = (props: Proptypes) => {
-  const { lists } = props;
+  const { lists, label } = props;
   const { pathname } = useRouter();
   return (
     <div className={styles.sidebar}>
       <div className={styles.sidebar__top}>
-        <h1 className={styles.sidebar__top__title}>Admin Panel</h1>
+        <h1 className={styles.sidebar__top__title}>{label}</h1>
         <div className={styles.sidebar__top__lists}>
           {lists.map((list) => (
             <Link

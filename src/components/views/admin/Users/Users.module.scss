@@ -26,8 +26,8 @@
       gap: 10px;
       &__edit {
         background-color: #fadf11c7;
-        border-radius: 0;
-        padding: 10px;
+        border-radius: 25%;
+        padding: 5px;
         color: #000;
         i {
           font-size: 20px;
@@ -35,8 +35,8 @@
       }
       &__delete {
         background-color: #ff6363;
-        border-radius: 0;
-        padding: 10px;
+        border-radius: 25%;
+        padding: 5px;
         i {
           font-size: 20px;
         }

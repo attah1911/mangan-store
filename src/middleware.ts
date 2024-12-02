@@ -7,3 +7,5 @@ export function mainMiddleware() {
 }
 
 export default withAuth(mainMiddleware, ["admin", "auth", "member"]);
+
+//test

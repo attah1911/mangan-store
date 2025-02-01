@@ -3,16 +3,23 @@ import styles from "./Profile.module.scss";
 import InputMember from "@/components/ui/InputMember";
 import Button from "@/components/ui/Button";
 import Image from "next/image";
+import { useEffect } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ProfileMemberView = ({ profile }: any) => {
-  console.log(profile);
+  useEffect(() => {
+    console.log("Profile image:", profile?.image);
+  }, [profile]);
   return (
     <MemberLayout>
       <h1 className={styles.profile__title}>Profile Page</h1>
       <div className={styles.profile__main}>
         <div className={styles.profile__main__avatar}>
-          <Image src={profile.image} alt="profile" width={200} height={200} />
+          {profile?.image ? (
+            <Image src={profile.image} alt="profile" width={200} height={200} />
+          ) : (
+            <p>Memuat gambar profile...</p>
+          )}
           <label
             className={styles.profile__main__avatar__label}
             htmlFor="upload-image"

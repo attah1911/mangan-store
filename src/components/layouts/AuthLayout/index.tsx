@@ -25,7 +25,14 @@ const AuthLayout = (props: Proptypes) => {
           zIndex: 1,
         }}
       >
-        <Image className="logo" src="/Logo.png" layout="fill" alt="Logo" />
+        <Image
+          className="logo"
+          src="/Logo.png"
+          fill
+          alt="Logo"
+          sizes="(height: 100%), (width: 100%)"
+          priority
+        />
       </div>
       <div
         style={{
@@ -39,9 +46,9 @@ const AuthLayout = (props: Proptypes) => {
         <Image
           className="object-cover"
           src="/background.png"
-          layout="fill"
-          objectFit="cover"
+          fill
           alt="Background Image"
+          priority
         />
       </div>
       <div className={styles.auth__form} style={{ zIndex: 1 }}>

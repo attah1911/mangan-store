@@ -1,4 +1,5 @@
 import axios from "axios";
+import axiosRetry from "axios-retry";
 
 const headers = {
   Accept: "application/json",
@@ -22,5 +23,14 @@ instance.interceptors.request.use(
   (response) => response,
   (error) => Promise.reject(error)
 );
+
+axiosRetry(instance, {
+  retries: 3, // Jumlah percobaan ulang
+  retryDelay: axiosRetry.exponentialDelay, // Menggunakan exponential backoff (penundaan bertambah)
+  retryCondition: (error) => {
+    // Tentukan kondisi kapan retry dilakukan. Misalnya hanya jika error adalah timeout atau kesalahan jaringan.
+    return error.response?.status === 500 || error.code === "ECONNABORTED";
+  },
+});
 
 export default instance;

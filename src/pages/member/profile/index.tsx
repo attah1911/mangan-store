@@ -11,8 +11,15 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const getAllUsers = async () => {
-      const { data } = await userServices.getProfile(session.data?.accessToken);
-      setProfile(data.data);
+      try {
+        const { data } = await userServices.getProfile(
+          session.data?.accessToken
+        );
+        setProfile(data.data);
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (error) {
+        console.log("Memuat ulang data");
+      }
     };
     getAllUsers();
   }, [session]);

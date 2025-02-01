@@ -21,6 +21,7 @@ const Input = (props: Proptypes) => {
         className={styles.container__input}
         defaultValue={defaultValue}
         disabled={disabled}
+        autoComplete="current-password"
       />
     </div>
   );
